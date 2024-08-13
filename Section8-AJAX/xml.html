@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+  </head>
+  <body>
+    
+  </body>
+  <script>
+    // using html file because this is browser supported format not the node js environemnt
+    const requestURL = "https://api.github.com/users/MuzdalfaZulfiqar";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestURL); // this open() will not call itself so to call it we need to send()
+    xhr.onreadystatechange = function () {
+      // This onreadyStateChange() willallow us to track all the five stages of xml requesr
+      console.log("readyState = " + xhr.readyState);
+      if (xhr.readyState == 4) {
+        console.log(this.responseText); // response is usualyy in string
+        // let obj = JSON.parse(this.responseText); // so parsing it to JSON(object)
+
+      }
+    };
+    xhr.send();
+  </script>
+</html>
+
+
+<!-- 
+response from browser
+{
+  "login": "MuzdalfaZulfiqar",
+  "id": 159936635,
+  "node_id": "U_kgDOCYhwew",
+  "avatar_url": "https://avatars.githubusercontent.com/u/159936635?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/MuzdalfaZulfiqar",
+  "html_url": "https://github.com/MuzdalfaZulfiqar",
+  "followers_url": "https://api.github.com/users/MuzdalfaZulfiqar/followers",
+  "following_url": "https://api.github.com/users/MuzdalfaZulfiqar/following{/other_user}",
+  "gists_url": "https://api.github.com/users/MuzdalfaZulfiqar/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/MuzdalfaZulfiqar/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/MuzdalfaZulfiqar/subscriptions",
+  "organizations_url": "https://api.github.com/users/MuzdalfaZulfiqar/orgs",
+  "repos_url": "https://api.github.com/users/MuzdalfaZulfiqar/repos",
+  "events_url": "https://api.github.com/users/MuzdalfaZulfiqar/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/MuzdalfaZulfiqar/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": "Muzdalfa Zulfiqar",
+  "company": null,
+  "blog": "",
+  "location": null,
+  "email": null,
+  "hireable": null,
+  "bio": "I am a future software engineer who is on her way to explore, learn and master the tech skills.",
+  "twitter_username": null,
+  "public_repos": 11,
+  "public_gists": 0,
+  "followers": 0,
+  "following": 0,
+  "created_at": "2024-02-13T16:38:03Z",
+  "updated_at": "2024-08-05T12:10:33Z"
+}
+-->
